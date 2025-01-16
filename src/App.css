@@ -1,0 +1,31 @@
+.typesection{
+    margin-top: 2rem;
+}
+.type-section {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.5rem;
+  }
+  .hidden-radio {
+    display: none;
+  }
+  .type-label {
+    cursor: pointer;
+    border-radius: 9999px; /* Full rounded */
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem; /* Text-sm */
+    font-weight: 600; /* Font-semibold */
+    background-color: #e2e8f0; /* Gray-300 */
+    transition: background-color 0.3s;
+  }
+  
+  .type-label.active {
+    background-color: #93c5fd; /* Blue-300 */
+  }
+  
+  .type-error {
+    color: #ef4444; /* Red-500 */
+    font-size: 0.875rem; /* Text-sm */
+    font-weight: 700; /* Font-bold */
+  }
+  

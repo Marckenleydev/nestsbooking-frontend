@@ -3,12 +3,18 @@ import {  Route, Routes, BrowserRouter as Router } from 'react-router-dom'; // C
 import Layout from './Layout/Layout';
 import Register from './pages/Register';
 import SignIn from './pages/SignIn';
- // Ensure Home component is correctly imported
+import AddHotel from './pages/AddHotel';
+import { useAppContext } from './context/AppContext';
+
 
 function App() {
+  const { isLoggedIn } = useAppContext(); 
   return (
-    <Router> {/* Use BrowserRouter for routing */}
+    <Router> 
       <Routes>
+        {isLoggedIn && (
+          <Route path="/add-hotel" element={<Layout><AddHotel/></Layout>} />
+        )}
         <Route path="/" element={<Layout><span>Home Page</span></Layout>} />
         <Route path="/*" element={<Layout><span>Serach Page</span></Layout>} />
         <Route path="/register" element={<Layout><Register/></Layout>} />

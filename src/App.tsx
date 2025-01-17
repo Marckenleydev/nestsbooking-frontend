@@ -1,5 +1,5 @@
 import './App.css';
-import {  Route, Routes, BrowserRouter as Router, Navigate } from 'react-router-dom'; // Correct import for routing
+import {  Route, Routes,  Navigate } from 'react-router-dom'; // Correct import for routing
 import Layout from './Layout/Layout';
 import Register from './pages/Register';
 import SignIn from './pages/SignIn';
@@ -14,9 +14,9 @@ function App() {
   
       <Routes>
          <Route element={<ProtectedRoute/>}>
-         
-         </Route>
          <Route path="/add-hotel" element={<Layout><AddHotel/></Layout>} />
+         </Route>
+        
        
         <Route path="/" element={<Layout><span>Home Page</span></Layout>} />
         <Route path="*" element={<Navigate to="/" />} />

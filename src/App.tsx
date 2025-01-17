@@ -10,7 +10,7 @@ import { useAppContext } from './context/AppContext';
 function App() {
   const { isLoggedIn } = useAppContext(); 
   return (
-    <Router> 
+  
       <Routes>
         {isLoggedIn && (
           <Route path="/add-hotel" element={<Layout><AddHotel/></Layout>} />
@@ -20,7 +20,7 @@ function App() {
         <Route path="/register" element={<Layout><Register/></Layout>} />
         <Route path="/signin" element={<Layout><SignIn/></Layout>} />
       </Routes>
-    </Router>
+   
   );
 }
 

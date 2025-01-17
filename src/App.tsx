@@ -14,8 +14,9 @@ function App() {
   
       <Routes>
          <Route element={<ProtectedRoute/>}>
-         <Route path="/add-hotel" element={<Layout><AddHotel/></Layout>} />
+         
          </Route>
+         <Route path="/add-hotel" element={<Layout><AddHotel/></Layout>} />
        
         <Route path="/" element={<Layout><span>Home Page</span></Layout>} />
         <Route path="*" element={<Navigate to="/" />} />

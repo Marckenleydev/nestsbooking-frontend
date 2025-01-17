@@ -5,16 +5,18 @@ import Register from './pages/Register';
 import SignIn from './pages/SignIn';
 import AddHotel from './pages/AddHotel';
 import { useAppContext } from './context/AppContext';
+import ProtectedRoute from './auth/ProtectedRoute';
 
 
 function App() {
-  const { isLoggedIn } = useAppContext(); 
+
   return (
   
       <Routes>
-        {isLoggedIn && (
-          <Route path="/add-hotel" element={<Layout><AddHotel/></Layout>} />
-        )}
+         <Route element={<ProtectedRoute/>}>
+         <Route path="/add-hotel" element={<Layout><AddHotel/></Layout>} />
+         </Route>
+       
         <Route path="/" element={<Layout><span>Home Page</span></Layout>} />
         <Route path="/*" element={<Layout><span>Serach Page</span></Layout>} />
         <Route path="/register" element={<Layout><Register/></Layout>} />

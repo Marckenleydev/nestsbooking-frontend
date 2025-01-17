@@ -6,6 +6,7 @@ import SignIn from './pages/SignIn';
 import AddHotel from './pages/AddHotel';
 
 import ProtectedRoute from './auth/ProtectedRoute';
+import MyHotels from './pages/MyHotels';
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <Routes>
          <Route element={<ProtectedRoute/>}>
          <Route path="/add-hotel" element={<Layout><AddHotel/></Layout>} />
+         <Route path="/my-hotels" element={<Layout><MyHotels/></Layout>} />
          </Route>
         
        

@@ -6,13 +6,17 @@ import {BiHotel, BiMoney, BiStar } from "react-icons/bi"
 
 function MyHotels() {
  
-  const {data:hotelData} = useQuery("fetchMyHotels", MyHotelApi.getMyHotels,{
+  const {data:hotelData, isLoading} = useQuery("fetchMyHotels", MyHotelApi.getMyHotels,{
     onError:()=>{
 
 
     }
   })
-
+  if(isLoading){
+    return  <div className="flex flex-col items-center justify-center  ">
+    <p className="text-2xl font-semibold text-gray-700 mt-4">Loading...</p>
+  </div>
+  }
   if(!hotelData){
     return  <div className="flex flex-col items-center justify-center  ">
     <p className="text-2xl font-semibold text-gray-700 mt-4">No Hotels Found</p>

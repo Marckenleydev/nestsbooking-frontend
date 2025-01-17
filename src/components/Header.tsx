@@ -21,7 +21,7 @@ function Header() {
                 <SignOutButton/>
                 </> :
                  <> <Link className="text-blue-800 flex items-center px-3 font-semibold hover:bg-gray-100 bg-white cursor-pointer" to="/signin">Sign In</Link> </> }
-                <Link className="flex items-center text-white px-3 font-semibold hover:bg-blue-800" to="/add-hotel">Add-Hotel</Link>
+                
                
                 
             </span>

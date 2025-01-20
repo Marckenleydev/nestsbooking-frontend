@@ -14,7 +14,7 @@ function Header() {
 
             <span className="flex space-x-2">
               {isLoggedIn ? <>
-                <Link className="flex items-center text-white px-3 font-semibold hover:bg-blue-800" to="/my-booking">My Bookings</Link>
+                <Link className="flex items-center text-white px-3 font-semibold hover:bg-blue-800" to="/my-bookings">My Bookings</Link>
                 <Link className="flex items-center text-white px-3 font-semibold hover:bg-blue-800" to="/my-hotels">My Hotels</Link>
 
 

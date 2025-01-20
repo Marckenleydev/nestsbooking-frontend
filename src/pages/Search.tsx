@@ -93,10 +93,12 @@ const Search = () => {
             <option value="pricePerNightDesc">
               Price Per Night (high to low)
             </option>
+            
           </select>
                 </div>
+                
                 {hotelData?.data.map((hotel)=>(
-                    <SearchResultCard hotel={hotel} key={hotel._id}/>
+                    <SearchResultCard  hotel={hotel} key={hotel._id}/>
                 ))}
                 <div>
                     <Pagination page={hotelData?.pagination.page || 1} pages={hotelData?.pagination.pages || 1} onPageChange={(page)=>setPage(page)} />

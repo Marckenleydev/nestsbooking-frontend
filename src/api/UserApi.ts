@@ -1,4 +1,4 @@
-import { RegisterFormData, SignInFormData } from "../types";
+import { RegisterFormData, SignInFormData, UserType } from "../types";
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 export const userRegister = async(formData:RegisterFormData)=>{
@@ -50,6 +50,20 @@ export const signOut = async () => {
       throw new Error("Error during sign out");
     }
   };
+
+  export const getCurrentUser = async ():Promise<UserType> => {
+    const response = await fetch(`${API_BASE_URL}/api/users/me`,{
+        method: "POST",
+        credentials:"include",
+    })
+
+    if(!response.ok){
+        throw new Error("Error fetching user");
+    }
+
+    return response.json();
+    
+  }
 
 export const validateToken=async()=>{
     const response = await fetch(`${API_BASE_URL}/api/users/validate-token`,{

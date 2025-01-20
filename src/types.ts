@@ -6,6 +6,32 @@ export type RegisterFormData = {
     lastName: string
 
   }
+  export type PaymentIntentResponse = {
+    paymentIntentId: string;
+    clientSecret: string;
+    totalCost: number;
+  };
+  
+  export type BookingFormData = {
+    firstName: string;
+    lastName: string;
+    email: string;
+    adultCount: number;
+    childCount: number;
+    checkIn: string;
+    checkOut: string;
+    hotelId: string;
+    paymentIntentId: string;
+    totalCost: number;
+  };
+  
+
+  export type UserType = {
+    _id: string;
+    email: string;
+    firstName: string;
+    lastName: string;
+  };
   
   export type SignInFormData = {
     email: string

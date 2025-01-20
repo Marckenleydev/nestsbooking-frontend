@@ -35,6 +35,7 @@ const Detail = () => {
         {hotel.imageUrls.map((image:string) => (
           <div key={image} className="h-[300px]">
             <img
+            key={image}
               src={image}
               alt={hotel.name}
               className="rounded-md w-full h-full object-cover object-center"

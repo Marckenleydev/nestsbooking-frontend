@@ -1,4 +1,4 @@
-import { HotelSearchResponse,  HotelType,  SearchParams } from "../types";
+import { BookingFormData, HotelSearchResponse,  HotelType,  PaymentIntentResponse,  SearchParams } from "../types";
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
@@ -40,3 +40,44 @@ export const searchHotels = async(searchParams: SearchParams):Promise<HotelSearc
      return response.json();
    }
    
+   export const createPaymeentIntent = async(hotelId:string, numberOfNights:string):Promise<PaymentIntentResponse>=>{
+    const response = await fetch(`${API_BASE_URL}/api/hotels/${hotelId}/bookings/payment-intent`, {
+       method: "POST",
+       credentials: "include",
+       body: JSON.stringify({numberOfNights}),
+       headers: {
+         "Content-Type": "application/json",
+       },
+     });
+     if (!response.ok) {
+       throw new Error("Failed to fetch payment intent");
+     }
+
+     return response.json();
+
+   }
+
+   export const createBooking = async(formData: BookingFormData)=>{
+     const response = await fetch(`${API_BASE_URL}/api/hotels/${formData.hotelId}/bookings`, {
+       method: "POST",
+       credentials: "include",
+       headers: {
+         "Content-Type": "application/json",
+       },
+       body: JSON.stringify(formData),
+     });
+     if (!response.ok) {
+       throw new Error("Failed to create booking");
+     }
+
+     return response.json();
+   }
+
+
+   export const fetchHotels = async (): Promise<HotelType[]> => {
+    const response = await fetch(`${API_BASE_URL}/api/hotels`);
+    if (!response.ok) {
+      throw new Error("Error fetching hotels");
+    }
+    return response.json();
+  };

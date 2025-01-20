@@ -2,13 +2,19 @@ import { useQuery } from "react-query";
 import * as bookingApi from "../api/MyBookingsApi";
 
 const MyBookings = () => {
-  const { data: hotels } = useQuery(
+  const { data: hotels, isLoading } = useQuery(
     "fetchMyBookings",
     bookingApi.fetchMyBookings
   );
-
+  if(isLoading){
+    return  <div className="flex flex-col items-center justify-center  ">
+    <p className="text-2xl font-semibold text-gray-700 mt-4">Loading...</p>
+  </div>
+  }
   if (!hotels || hotels.length === 0) {
-    return <span>No bookings found</span>;
+    return  <div className="flex flex-col items-center justify-center  ">
+    <p className="text-2xl font-semibold text-gray-700 mt-4">No Bookings Found</p>
+  </div>
   }
 
   return (

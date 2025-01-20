@@ -33,7 +33,7 @@ const Search = () => {
    
   
     }
-    const {data: hotelData} = useQuery(["searchHotels", searchParams], ()=> HotelApi.searchHotels(searchParams) )
+    const {data: hotelData, isLoading} = useQuery(["searchHotels", searchParams], ()=> HotelApi.searchHotels(searchParams) )
    
     
     const handleStarChange=(event: React.ChangeEvent<HTMLInputElement>)=>{
@@ -63,7 +63,11 @@ const Search = () => {
             : prevFacilities.filter((prevFacility) => prevFacility !== facility)
         );
       };
-
+      if(isLoading){
+        return  <div className="flex flex-col items-center justify-center  ">
+        <p className="text-2xl font-semibold text-gray-700 mt-4">Loading...</p>
+      </div>
+      }
   return (
     <div className="grid grid-cols-1 lg:grid-cols-[250px_1fr] gap-5">
         <div className="rounded-lg border border-slate-300 p-5 h-fit sticky top-10">
